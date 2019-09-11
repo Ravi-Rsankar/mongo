@@ -9,3 +9,7 @@ bsondump --outFile equipment1.json exspv2/equipment.bson
 ```
 mongoimport --db exspv2 --collection equipment --file equipment.json --jsonArray
 ```
+##### Export a collection as Json file
+```
+mongoexport --collection equipment --db exspv3 --out equipment.json
+```
