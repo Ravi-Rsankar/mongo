@@ -13,3 +13,11 @@ mongoimport --db exspv2 --collection equipment --file equipment.json --jsonArray
 ```
 mongoexport --collection equipment --db exspv3 --out equipment.json
 ```
+##### Export the database
+```
+mongodump -d <database_name> -o <directory_backup>
+```
+##### Restore the database
+```
+mongorestore -d <database_name> <directory_backup>
+```
