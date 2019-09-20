@@ -21,3 +21,7 @@ mongodump -d <database_name> -o <directory_backup>
 ```
 mongorestore -d <database_name> <directory_backup>
 ```
+##### Mongo Logging In with username/password
+```
+mongo -u admin -p mongoadmin#123 --authenticationDatabase admin
+```
