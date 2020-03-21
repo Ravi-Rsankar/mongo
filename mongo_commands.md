@@ -25,4 +25,5 @@ mongorestore  -d dbname -u usr -p paswd <diroctory_backup>
 ##### Mongo Logging In with username/password
 ```
 mongo -u admin -p mongoadmin#123 --authenticationDatabase admin
+mongo -u user -p mongosuer#123 dbname
 ```
