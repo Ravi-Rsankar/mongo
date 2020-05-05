@@ -13,6 +13,10 @@ mongoimport --db dbname --collection colname --file file.json --jsonArray
 ```
 mongoexport --collection colName --db dbname --out file.json
 ```
+##### Export a collection as Json file without _id
+```
+mongoexport --db dbname --collection col | sed '/"_id":/s/"_id":[^,]*,//' > file.json
+```
 ##### Export the database
 ```
 mongodump -d <database_name> -o <directory_backup>
