@@ -17,6 +17,10 @@ mongoexport --collection colName --db dbname --out file.json
 ```
 mongoexport --db dbname --collection col | sed '/"_id":/s/"_id":[^,]*,//' > file.json
 ```
+##### Export the database with query
+```
+mongoexport --collection colname --db dbname --out file.json -q='{"_id": ObjectId("44676545eger565")}'
+```
 ##### Export the database
 ```
 mongodump -d <database_name> -o <directory_backup>
