@@ -13,6 +13,10 @@ mongoimport --db dbname --collection colname --file file.json --jsonArray
 ```
 mongoexport --collection colName --db dbname --out file.json
 ```
+##### Export a collection as Json file as Json array
+```
+mongoexport --collection colName --db dbname --out file.json --jsonArray
+```
 ##### Export a collection as Json file without _id
 ```
 mongoexport --db dbname --collection col | sed '/"_id":/s/"_id":[^,]*,//' > file.json
