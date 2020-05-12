@@ -47,3 +47,25 @@ db.collection.aggregate(
     {"$project": {"name" : "$_id", "_id" : 0} }
 )
 ```
+##### Delete all duplicates in a collection but not the original record
+```
+db.col.aggregate([
+ {
+     "$group": {
+         _id: {projectId: "$field"},
+         dups: { $addToSet: "$_id" } ,
+         count: { $sum : 1 }
+     }
+ },
+ {
+     "$match": {
+         count: { "$gt": 1 }
+     }
+ }
+]).forEach(function(doc) {
+   doc.dups.shift();
+   db.col.remove({
+       _id: {$in: doc.dups}
+   });
+})
+```
