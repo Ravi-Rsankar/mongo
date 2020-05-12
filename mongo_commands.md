@@ -39,3 +39,11 @@ mongorestore  -d dbname -u usr -p paswd <diroctory_backup>
 mongo -u admin -p mongoadmin#123 --authenticationDatabase admin
 mongo -u user -p mongosuer#123 dbname
 ```
+##### Get all duplicates in a collection
+```
+db.collection.aggregate(
+    {"$group" : { "_id": "$name", "count": { "$sum": 1 } } },
+    {"$match": {"_id" :{ "$ne" : null } , "count" : {"$gt": 1} } }, 
+    {"$project": {"name" : "$_id", "_id" : 0} }
+)
+```
